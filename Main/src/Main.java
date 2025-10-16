@@ -40,7 +40,6 @@ class Usuario {
 
     void devolverLivro(JTextArea area, java.util.List<Livro> biblioteca) {
         if (livroEmprestado != null) {
-            // Verifica se o livro ainda está na biblioteca
             if (biblioteca.contains(livroEmprestado)) {
                 livroEmprestado.devolver();
                 area.append(nome + " devolveu o livro: " + livroEmprestado.titulo + "\n");
@@ -65,12 +64,10 @@ public class Main extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Área de texto
         area = new JTextArea();
         area.setEditable(false);
         add(new JScrollPane(area), BorderLayout.CENTER);
 
-        // Painel de botões
         JPanel panel = new JPanel(new GridLayout(2, 3));
 
         JButton btnListar = new JButton("Listar Livros");
@@ -89,7 +86,6 @@ public class Main extends JFrame {
 
         add(panel, BorderLayout.SOUTH);
 
-        // Ações dos botões
         btnListar.addActionListener(e -> {
             area.setText("");
             if (livros.isEmpty()) {
@@ -103,7 +99,6 @@ public class Main extends JFrame {
             ImageIcon iconeLivro = new ImageIcon("assets/livro.png"); // Coloque o caminho do seu ícone
             String titulo = null, autor = null, info = null;
 
-            // Solicita título até que seja válido
             while (titulo == null || titulo.trim().isEmpty()) {
                 titulo = (String) JOptionPane.showInputDialog(
                         this,
@@ -114,10 +109,8 @@ public class Main extends JFrame {
                         null,
                         null
                 );
-                if (titulo == null) return; // Usuário cancelou
+                if (titulo == null) return;
             }
-
-            // Solicita autor até que seja válido
             while (autor == null || autor.trim().isEmpty()) {
                 autor = (String) JOptionPane.showInputDialog(
                         this,
@@ -131,7 +124,6 @@ public class Main extends JFrame {
                 if (autor == null) return;
             }
 
-            // Solicita info até que seja válida
             while (info == null || info.trim().isEmpty()) {
                 info = (String) JOptionPane.showInputDialog(
                         this,
@@ -225,3 +217,4 @@ public class Main extends JFrame {
         SwingUtilities.invokeLater(() -> new Main().setVisible(true));
     }
 }
+
