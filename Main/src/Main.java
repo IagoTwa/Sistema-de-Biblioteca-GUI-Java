@@ -96,7 +96,7 @@ public class Main extends JFrame {
         });
 
         btnCriarLivro.addActionListener(e -> {
-            ImageIcon iconeLivro = new ImageIcon("assets/livro.png"); // Coloque o caminho do seu ícone
+            ImageIcon iconeLivro = new ImageIcon("assets/livro.png");
             String titulo = null, autor = null, info = null;
 
             while (titulo == null || titulo.trim().isEmpty()) {
@@ -158,7 +158,7 @@ public class Main extends JFrame {
         });
 
         btnCriarUsuario.addActionListener(e -> {
-            ImageIcon iconeUsuario = new ImageIcon("assets/usuario.png"); // Coloque o caminho do seu ícone
+            ImageIcon iconeUsuario = new ImageIcon("assets/usuario.png");
             String nome = (String) JOptionPane.showInputDialog(
                     this,
                     "Nome do usuário:",
@@ -217,4 +217,5 @@ public class Main extends JFrame {
         SwingUtilities.invokeLater(() -> new Main().setVisible(true));
     }
 }
+
 
